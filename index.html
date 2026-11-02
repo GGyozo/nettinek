@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100b20"><title>Egy kis univerzum neked</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#49306f 0,transparent 48%),linear-gradient(#100b20,#211334 65%,#080d1b);color:#f4f2ff;font-family:system-ui,sans-serif;overflow-x:hidden}#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1}.wrap{width:min(900px,calc(100% - 34px));margin:auto}nav{padding:22px 0;color:#cbbde2;letter-spacing:.12em;text-transform:uppercase;font-size:.75rem}.dot{display:inline-block;width:7px;height:7px;background:#d7a8ff;border-radius:50%;margin-right:9px;box-shadow:0 0 14px #d7a8ff}.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:50px 0;position:relative}.eyebrow,.kicker{color:#d7a8ff;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem}h1{font:400 clamp(3.2rem,10vw,6.7rem)/.98 Georgia,serif;letter-spacing:-.04em;margin:24px 0;text-shadow:0 0 45px #b9a7ff55}h1 em{color:#d8b4ff}.lead,.intro{color:#cbd3ea;line-height:1.85;max-width:640px;margin:0 auto}.cta,.btn{margin-top:30px;border:1px solid #d8b4ff88;background:#d8b4ff16;color:white;padding:13px 22px;border-radius:999px;cursor:pointer;font-size:.95rem}.scroll{position:absolute;bottom:24px;color:#9ca9c9;font-size:.7rem;letter-spacing:.16em}section{padding:65px 0}h2{font:400 clamp(2rem,5vw,3.3rem)/1.1 Georgia,serif;margin:14px 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.glass{background:linear-gradient(135deg,#ffffff12,#ffffff06);border:1px solid #d9bdff2b;border-radius:24px;backdrop-filter:blur(12px);box-shadow:0 20px 70px #0003}.memory{padding:22px;min-height:180px}.symbol{font-size:1.5rem;margin-bottom:17px}.memory h3{font:400 1.25rem Georgia,serif;margin:0 0 9px}.memory p{color:#cbbde2;font-size:.9rem;line-height:1.65;margin:0}.quote{padding:32px;text-align:center;margin:20px 0}.quote p{font:italic clamp(1.4rem,4vw,2.1rem)/1.45 Georgia,serif;margin:0}.quote small{display:block;color:#cbbde2;margin-top:16px}.center{text-align:center}.reveal{padding:30px;text-align:center;margin-top:26px}.reveal p{color:#d7dcef;line-height:1.8;max-width:620px;margin:0 auto 20px}.note{display:none;text-align:left;white-space:pre-line;line-height:1.9;color:#eee9ff;border-top:1px solid #ffffff25;padding-top:20px;margin:22px auto 0;max-width:620px}.note.show{display:block;animation:fade .7s ease}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.btn{margin-top:0;border-color:#d7a8ff88;background:#d7a8ff11}footer{text-align:center;padding:48px 0 60px;color:#8994b2;font-size:.82rem;line-height:1.8}@media(max-width:650px){.grid{grid-template-columns:1fr}.memory{min-height:0}section{padding:52px 0}.hero{min-height:82vh}}
+
+/* Premium scroll experience */
+body{background-color:#10091f}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:8;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
+nav{position:relative;z-index:3}
+.hero{overflow:hidden}
+.hero:before{content:"";position:absolute;width:min(76vw,700px);height:min(76vw,700px);border-radius:50%;border:1px solid #d7a8ff22;box-shadow:0 0 90px #a45bdf18,inset 0 0 90px #a45bdf12;animation:orbit 32s linear infinite}
+.hero:after{content:"✦";position:absolute;top:20%;right:12%;font-size:clamp(1.4rem,4vw,2.6rem);color:#e7c7ff;text-shadow:0 0 30px #d7a8ff;animation:float 5s ease-in-out infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-16px) rotate(15deg)}}
+.hero>div:first-child{position:relative;z-index:1}
+section:not(.hero){position:relative}
+section:not(.hero):before{content:"";position:absolute;left:50%;top:0;width:1px;height:46px;background:linear-gradient(transparent,#d7a8ff77,transparent)}
+.kicker{display:flex;align-items:center;gap:12px}
+.kicker:before,.kicker:after{content:"";height:1px;width:32px;background:#d7a8ff77}
+.glass{background:linear-gradient(135deg,#ffffff12,#b78bff08 55%,#ffffff04);border:1px solid #d9bdff2b;box-shadow:0 24px 80px #05020d55,inset 0 1px #ffffff12;transition:transform .55s cubic-bezier(.2,.75,.2,1),border-color .4s,box-shadow .4s}
+.memory{transform-style:preserve-3d}
+.memory:hover{transform:translateY(-9px) rotateX(2deg);border-color:#e4c4ff77;box-shadow:0 30px 90px #05020d88,0 0 35px #b77bff18}
+.memory .symbol{filter:drop-shadow(0 0 12px #d7a8ff66)}
+.quote{position:relative;overflow:hidden}
+.quote:before{content:"“";position:absolute;left:18px;top:-40px;font:10rem Georgia,serif;color:#d7a8ff12}
+.reveal,.memory,.quote,.kicker,h2,.intro{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.75,.2,1)}
+.in-view{opacity:1!important;transform:translateY(0)!important}
+.memory:nth-child(2){transition-delay:.12s}.memory:nth-child(3){transition-delay:.24s}
+.hero .eyebrow,.hero h1,.hero .lead,.hero .cta{animation:heroIn 1s both}
+.hero h1{animation-delay:.12s}.hero .lead{animation-delay:.25s}.hero .cta{animation-delay:.4s}
+@keyframes heroIn{from{opacity:0;transform:translateY(24px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+.scroll{animation:pulse 2s ease-in-out infinite}@keyframes pulse{50%{opacity:.45;transform:translateY(5px)}}
+.cta,.btn{box-shadow:0 0 0 0 #d7a8ff55;transition:transform .3s,box-shadow .3s,background .3s}
+.cta:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 0 35px #d7a8ff30;background:#d7a8ff22}
+footer{position:relative}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal,.memory,.quote,.kicker,h2,.intro{opacity:1;transform:none}}
+
+
+/* Lilac cursor trail and quiet ambient controls */
+@media (pointer:fine){
+  body,button,a{cursor:none}
+  #cursorDot{position:fixed;left:0;top:0;width:10px;height:10px;border-radius:50%;background:#f0d7ff;box-shadow:0 0 12px 4px #c58cffaa,0 0 28px #a45bdf66;pointer-events:none;z-index:30;transform:translate(-50%,-50%);mix-blend-mode:screen}
+  #cursorRing{position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid #e3c5ff99;border-radius:50%;pointer-events:none;z-index:29;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s;box-shadow:0 0 18px #b77bff22}
+  body:has(button:hover) #cursorRing{width:48px;height:48px;border-color:#f0d7ff}
+}
+#trailCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:20}
+.musicToggle{position:fixed;right:18px;bottom:18px;z-index:25;border:1px solid #e0c2ff66;background:#1a1030dd;color:#f3e7ff;border-radius:999px;padding:11px 15px;box-shadow:0 8px 30px #0005;backdrop-filter:blur(12px);font-size:.82rem;cursor:pointer}
+.musicToggle span{color:#d7a8ff;margin-right:7px}
+@media(max-width:700px){#cursorDot,#cursorRing,#trailCanvas{display:none}.musicToggle{right:12px;bottom:12px}}
+
+
+.meme-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+.meme-card{margin:0;padding:12px;overflow:hidden;text-align:center}
+.meme-card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;display:block}
+.meme-card figcaption{display:none}
+.image-placeholder{display:none;place-items:center;gap:8px;aspect-ratio:4/3;border:1px dashed #d7a8ff66;border-radius:16px;color:#e6caff;font-size:2rem;background:#d7a8ff0b}
+.image-placeholder small{font-size:.85rem;line-height:1.8;color:#cbbde2}
+.music-card{max-width:620px;margin:28px auto 0;padding:24px}
+.music-note{font-size:2rem;color:#e2c1ff;text-shadow:0 0 25px #d7a8ff}
+.music-card p{color:#d9c9ee}
+.youtube-frame{position:relative;width:100%;aspect-ratio:16/9;min-height:200px;overflow:hidden;border-radius:16px;background:#080611}
+.youtube-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.youtube-link{display:inline-block;margin-top:15px;color:#e2c1ff;text-decoration:none;font-size:.9rem}
+.youtube-link:hover{text-decoration:underline}
+@media(max-width:650px){.meme-grid{grid-template-columns:1fr}.music-card{padding:14px}.youtube-frame{min-height:200px}}
+
+.erika-section .intro{margin-bottom:26px}
+.erika-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:26px}
+.erika-card{margin:0;padding:10px;overflow:hidden;transition:transform .25s ease,border-color .25s ease}
+.erika-card:hover{transform:translateY(-5px) rotate(-.5deg);border-color:#d7a8ff88}
+.erika-card img{width:100%;height:220px;object-fit:cover;object-position:center 35%;border-radius:12px;display:block;filter:saturate(.88)}
+.erika-card figcaption{padding:12px 5px 5px;text-align:left;line-height:1.5}
+.erika-card figcaption b{display:block;color:#f0e6ff;font-size:.88rem}
+.erika-card figcaption span{display:block;color:#bdb1d5;font-size:.75rem;margin-top:5px}
+.erika-footnote{text-align:center;color:#c9b8e3;font-size:.85rem;margin-top:20px}
+.meme-card img{aspect-ratio:3/2;object-fit:cover}
+@media(max-width:760px){.erika-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.erika-card img{height:210px}}
+@media(max-width:420px){.erika-grid{gap:9px}.erika-card{padding:7px}.erika-card img{height:175px}.erika-card figcaption b{font-size:.8rem}}
+</style></head><body><canvas id="stars"></canvas><canvas id="trailCanvas"></canvas><div id="cursorDot"></div><div id="cursorRing"></div><div class="wrap">
+<nav><span class="dot"></span>NETTI KIS UNIVERZUMA <span style="float:right">CSAK NEKED ✦</span></nav>
+<main><section class="hero"><div><div class="eyebrow">NETTINEK, SZERETETTEL</div><h1>Ez a kis<br><em>univerzum</em><br>most a tiéd.</h1><p class="lead">Szia Netti! Készítettem neked egy apró helyet a végtelen interneten, ami most csak rólad szól. Nem kell semmit megválaszolnod vagy eldöntened. Csak szerettem volna adni neked valamit, amiben egy kicsit benne vagyok én is.</p><button class="cta" onclick="document.querySelector('#emlekek').scrollIntoView({behavior:'smooth'})">Nézz körül nálam ↓</button></div><div class="scroll">GÖRGESS TOVÁBB · ✦</div></section>
+<section id="emlekek"><div class="kicker">A MI KIS VILÁGUNK</div><h2>Apróságok, amik csak ránk jellemzőek.</h2><p class="intro" style="margin:0">Vannak dolgok, amiket talán másnak el sem lehet magyarázni — nekünk mégis egy egész kis történetet jelentenek.</p><div class="grid">
+<article class="glass memory"><div class="symbol">🎬</div><h3>Abszolút filmszínház</h3><p>A mi külön kis filmszínházunk, ahol néha egyetlen screenshot többet mond minden szónál. Ide kerül majd a két mémünk. 😄</p></article>
+<article class="glass memory"><div class="symbol">👑</div><h3>Erikás fejek</h3><p>A legendásan jól időzített, screenelt herceg Erikás fejek. Vannak poénok, amikhez nem is kell magyarázat — elég csak elővenni a megfelelő képet.</p></article>
+<article class="glass memory"><div class="symbol">🍒</div><h3>Cherry Milka és K-pop</h3><p>Egy jó K-pop dal, mellé egy meggyes vagy cseresznyés Milka… remélem, ez a kombináció ma is tud egy kis mosolyt csalni az arcodra.</p></article></div></section>
+<section class="meme-section">
+  <div class="kicker">KÉT KIS EMLÉK</div>
+  <h2>Abszolút filmszínház. 🎞️</h2>
+  <p class="intro">Két ikonikus pillanat a mi saját kis filmszínházunkból. 😄</p>
+  <div class="meme-grid">
+    <figure class="glass meme-card"><img src="meme-en.jpg" alt="A te abszolút zsenis mémképed"></figure>
+    <figure class="glass meme-card"><img src="meme-netti.jpg" alt="Netti abszolút megérzés mémképe"></figure>
+  </div>
+</section>
+
+<section class="erika-section">
+  <div class="kicker">A LEGENDÁS REAKCIÓK</div>
+  <h2>Herceg Erikás reakció-archívum 👑</h2>
+  <p class="intro">Minden élethelyzetre van egy megfelelő arckifejezés. A használati útmutató teljesen felesleges — úgyis tudjuk, mikor melyiket kell elővenni. 😂</p>
+  <div class="erika-grid">
+    <figure class="glass erika-card"><img src="erika-1.jpg" alt="Herceg Erikás reakció"><figcaption><b>„Ezt most inkább nem kommentálom.”</b><span>Amikor már a szavak is elfogytak.</span></figcaption></figure>
+    <figure class="glass erika-card"><img src="erika-2.jpg" alt="Herceg Erikás reakció"><figcaption><b>„Bocsánat, tessék?”</b><span>Amikor valaki nagyon magabiztosan mond hülyeséget.</span></figcaption></figure>
+    <figure class="glass erika-card"><img src="erika-3.jpg" alt="Herceg Erikás reakció"><figcaption><b>„Én ezt nem hiszem el.”</b><span>Amikor a történet újabb fordulatot vesz.</span></figcaption></figure>
+    <figure class="glass erika-card"><img src="erika-4.jpg" alt="Herceg Erikás reakció"><figcaption><b>„Na jó, persze…”</b><span>Az a bizonyos nézés, ami mindent elmond.</span></figcaption></figure>
+  </div>
+  <p class="erika-footnote">Vészhelyzet esetén: screenshot elő, magyarázkodás kikapcsolva. ✨</p>
+</section>
+<section><div class="glass quote"><p>„Van, akivel még a legkisebb hülyeségből is közös emlék lesz.”</p><small>és néha pont ezek a legjobbak</small></div></section>
+<section class="center"><div class="kicker">EGY KIS KÖZÖS JÖVŐ</div><h2>Nem csak egy képernyőn túl.</h2><p class="intro">Volt egy tervünk, amit sokszor elképzeltem: együtt élni, végre nem csak képernyőn keresztül. És persze ott van a névlista is… Kadosa még mindig erős versenyző nálad. Nálam azért még tart a névvita. 😄</p><div class="glass reveal"><div style="font-size:2rem;margin-bottom:14px">☾ ✦ ☽</div><p>Nem tudom, mit hoz a jövő, és nem szeretnélek semmire sürgetni. Csak jó érzés volt közösen elképzelni ezeket a hétköznapi, egyszerű dolgokat.</p></div></section>
+
+
+<section><div class="glass quote"><p>„Nem kell minden csillagnak ugyanott lennie ahhoz, hogy ugyanazt az eget nézzük.”</p><small>egy gondolat tőlem neked</small></div></section>
+<section class="center" id="zene"><div class="kicker">EGY DAL NEKED</div><h2>Just the Way You Are 💜</h2><p class="intro">Azért ezt a dalt választottam, mert szeretném, ha úgy látnád magad, ahogyan én látlak: különlegesnek és gyönyörűnek, pontosan olyannak, amilyen vagy. Nem kell megváltoznod ahhoz, hogy értékes és szerethető legyél.</p><div class="glass music-card"><div class="music-note">♫</div><p>♫ Bruno Mars – Just the Way You Are ♫</p><div class="youtube-frame"><iframe title="Bruno Mars – Just the Way You Are" src="https://www.youtube-nocookie.com/embed/LjhCEhWiKXk?rel=0&amp;playsinline=1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><a class="youtube-link" href="https://www.youtube.com/watch?v=LjhCEhWiKXk" target="_blank" rel="noopener">Megnyitás a YouTube-on ↗</a></div></section>
+<section class="center"><div class="kicker">EGY APRÓ MEGLEPETÉS</div><h2>Van itt még valami.</h2><p class="intro">Netti, ezt a pár sort külön neked hagytam. Nem nagy dolog — csak őszinte.</p><div class="glass reveal"><div style="font-size:2rem;margin-bottom:14px">✧</div><p>Azért készült ez az oldal, mert szerettem volna valami olyat adni neked, amit nem lehet csak úgy levenni egy polcról. Valamit, amibe beletettem egy kicsit abból, amit irántad érzek.</p><button class="btn" id="open">Nyisd ki a kis üzenetet ✦</button><div class="note" id="note">Netti,
+
+Szeretném, ha tudnád, hogy még mindig nagyon fontos vagy nekem.
+
+Nem szeretnélek sürgetni, és nem várok ettől az oldaltól választ. Csak szerettem volna, hogy tudd: ami köztünk volt, nekem sokat jelentett, és te még mindig nagyon fontos vagy.
+
+Vigyázz magadra. ❤️</div></div></section>
+<section class="center" style="padding-top:0"><button class="btn" id="wish">Küldök neked egy hullócsillagot ✨</button><p id="wishText" style="color:#cbbde2;min-height:28px;margin-top:18px"></p></section></main>
+<footer>Nettinek készült, egy kis szeretettel. <span style="color:#e7b7ed">♥</span><br>Attól, akinek még mindig fontos vagy.</footer></div>
+<script>
+const c=document.getElementById('stars'),x=c.getContext('2d');let w,h,a=[];function size(){w=c.width=innerWidth*devicePixelRatio;h=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';a=Array.from({length:Math.min(180,Math.floor(innerWidth/5))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,o:Math.random()*.7+.2,d:Math.random()*.008+.002}))}function draw(){x.clearRect(0,0,w,h);a.forEach(s=>{s.o+=s.d;if(s.o>.9||s.o<.15)s.d*=-1;x.beginPath();x.arc(s.x,s.y,s.r*devicePixelRatio,0,7);x.fillStyle=`rgba(225,232,255,${s.o})`;x.fill()});requestAnimationFrame(draw)}addEventListener('resize',size);size();draw();
+document.getElementById('open').onclick=()=>{let n=document.getElementById('note');n.classList.toggle('show');document.getElementById('open').textContent=n.classList.contains('show')?'Csukd össze':'Nyisd ki a kis üzenetet ✦'};
+document.getElementById('wish').onclick=()=>{document.getElementById('wishText').textContent='Kívánom, hogy ma este találjon rád valami jó. ✨';for(let i=0;i<28;i++){let s=document.createElement('span');s.textContent='✦';s.style.cssText=`position:fixed;left:${Math.random()*100}vw;top:${Math.random()*100}vh;color:#d8b4ff;font-size:${12+Math.random()*16}px;pointer-events:none;z-index:5;animation:fade 1.5s ease forwards`;document.body.append(s);setTimeout(()=>s.remove(),1600)}};
+
+const revealEls=document.querySelectorAll('section:not(.hero) .kicker,section:not(.hero) h2,section:not(.hero) .intro,.memory,.quote,.reveal');
+if('IntersectionObserver' in window){
+ const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{threshold:.16,rootMargin:'0px 0px -45px 0px'});
+ revealEls.forEach(el=>io.observe(el));
+}else{revealEls.forEach(el=>el.classList.add('in-view'))}
+
+
+// Custom lilac cursor and small star-dust trail on desktop.
+if(matchMedia('(pointer:fine)').matches){
+ const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing'),tc=document.getElementById('trailCanvas'),tctx=tc.getContext('2d');
+ let mx=-100,my=-100,rx=-100,ry=-100,particles=[];
+ function fitTrail(){tc.width=innerWidth*devicePixelRatio;tc.height=innerHeight*devicePixelRatio;}
+ fitTrail();addEventListener('resize',fitTrail);
+ addEventListener('mousemove',e=>{
+   mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
+   for(let i=0;i<2;i++)particles.push({x:mx*devicePixelRatio+(Math.random()-.5)*5,y:my*devicePixelRatio+(Math.random()-.5)*5,vx:(Math.random()-.5)*.7,vy:(Math.random()-.5)*.7-.35,life:1,size:Math.random()*2.2+1});
+ });
+ function trailFrame(){
+   rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';
+   tctx.clearRect(0,0,tc.width,tc.height);
+   particles=particles.filter(p=>p.life>0);
+   particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.life-=.018;p.size*=.992;tctx.beginPath();tctx.arc(p.x,p.y,p.size*devicePixelRatio,0,Math.PI*2);tctx.fillStyle=`rgba(220,177,255,${p.life*.8})`;tctx.shadowBlur=10*devicePixelRatio;tctx.shadowColor='#bd83ff';tctx.fill()});
+   requestAnimationFrame(trailFrame);
+ }
+ trailFrame();
+}
+
+</script></body></html>
